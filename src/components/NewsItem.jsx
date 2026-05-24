@@ -13,11 +13,11 @@ export class NewsItem extends Component {
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={imageurl} />
             <Card.Body>
-              <Card.Title> {title} </Card.Title>
+              <Card.Title> {title}... </Card.Title>
               <Card.Text>
-                {description}
+                {description}...
               </Card.Text>
-              <Button href='/newsdetail/' variant="primary">Read More</Button>
+              <Button href={newsurl} target='_blank' variant="primary">Read More</Button>
             </Card.Body>
           </Card>
         </>
