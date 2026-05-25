@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import Button from 'react-bootstrap/Button';
 export class News extends Component {
   constructor() {
     let articles = [
@@ -49,18 +50,55 @@ export class News extends Component {
     console.log("Hello i am a constructor from news components")
     this.state = {
       articles: articles,
-      loading: false
+      loading: false,
+      page: 1
     }
   }
 
-async componentDidMount(){
-  let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b280b13befee4144a4331c6eda48aae3";
+  async componentDidMount() {
+    let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b280b13befee4144a4331c6eda48aae3&page=1&pageSize=18";
+    let data = await fetch(url);
+    let parsedData = await data.json()
+    console.log(parsedData);
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults })
+  }
+
+  handleprevclick = async () => {
+
+  let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b280b13befee4144a4331c6eda48aae3&page=${this.state.page - 1}&pageSize=18`;
+
   let data = await fetch(url);
-  let parsedData = await data.json()
+  let parsedData = await data.json();
+
   console.log(parsedData);
-  this.setState({articles: parsedData.articles})
+
+  this.setState({
+    page: this.state.page - 1,
+    articles: parsedData.articles || []
+  });
 }
 
+  handlenextclick = async () => {
+    if(this.state.page + 1>Math.ceil(this.state.totalResults/18)){
+
+    }
+    else{
+
+    
+
+  let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b280b13befee4144a4331c6eda48aae3&page=${this.state.page + 1}&pageSize=18`;
+
+  let data = await fetch(url);
+  let parsedData = await data.json();
+
+  console.log(parsedData);
+
+  this.setState({
+    page: this.state.page + 1,
+    articles: parsedData.articles || []
+  });
+}
+}
   render() {
 
     return (
@@ -68,15 +106,19 @@ async componentDidMount(){
         <>
           <h1>InfoSentinel News - Top Headlines</h1>
           <div className="row">
-          {this.state.articles.map((element)=>{
-           return <div className="col-md-4" key={element.imageurl}>
-              <NewsItem  title={element.title?element.title: ""} description={element.description?element.description: ""} imageurl={element.urlToImage} newsurl={element.url} />
-            </div>
-          })}
-            
+            {this.state.articles.map((element) => {
+              return <div className="col-md-4" key={element.imageurl}>
+                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsurl={element.url} />
+              </div>
+            })}
 
 
 
+
+          </div>
+          <div className="container d-flex justify-content-between my-3">
+            <Button disabled={this.state.page <= 1} variant="info" onClick={this.handleprevclick}>&larr; Previous</Button>
+            <Button variant="info" onClick={this.handlenextclick}>Next &rarr;</Button>
           </div>
         </>
       </div>
