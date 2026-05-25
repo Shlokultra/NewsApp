@@ -11,11 +11,11 @@ export class NewsItem extends Component {
       <div className='my-3'>
         <>
           <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={imageurl} />
+            <Card.Img variant="top" src={!imageurl?"https://cdn.arstechnica.net/wp-content/uploads/2026/05/starshipflight12_inflight-1152x648.jpg":imageurl} />
             <Card.Body>
-              <Card.Title> {title}... </Card.Title>
+              <Card.Title> {title} </Card.Title>
               <Card.Text>
-                {description}...
+                {description}
               </Card.Text>
               <Button href={newsurl} target='_blank' variant="primary">Read More</Button>
             </Card.Body>

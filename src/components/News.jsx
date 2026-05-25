@@ -52,16 +52,25 @@ export class News extends Component {
       loading: false
     }
   }
+
+async componentDidMount(){
+  let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=b280b13befee4144a4331c6eda48aae3";
+  let data = await fetch(url);
+  let parsedData = await data.json()
+  console.log(parsedData);
+  this.setState({articles: parsedData.articles})
+}
+
   render() {
 
     return (
       <div className='container my-3'>
         <>
-          <h2>InfoSentinel News - Top Headlines</h2>
+          <h1>InfoSentinel News - Top Headlines</h1>
           <div className="row">
           {this.state.articles.map((element)=>{
            return <div className="col-md-4" key={element.imageurl}>
-              <NewsItem  title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageurl={element.urlToImage} newsurl={element.url} />
+              <NewsItem  title={element.title?element.title: ""} description={element.description?element.description: ""} imageurl={element.urlToImage} newsurl={element.url} />
             </div>
           })}
             
