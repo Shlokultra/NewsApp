@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export class Navbarcomponent extends Component {
   render() {
@@ -21,17 +22,23 @@ export class Navbarcomponent extends Component {
           {/* <br /> */}
           <Navbar bg="primary" data-bs-theme="dark">
             <Container>
-              <Navbar.Brand href="#home">InfoSentinel News</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/">InfoSentinel News</Navbar.Brand>
               <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">About</Nav.Link>
-                <Nav.Link href="#pricing">business</Nav.Link>
-                <Nav.Link href="#pricing">entertainment</Nav.Link>
-                <Nav.Link href="#pricing">general</Nav.Link>
-                <Nav.Link href="#pricing">health</Nav.Link>
-                <Nav.Link href="#pricing">science</Nav.Link>
-                <Nav.Link href="#pricing">sports</Nav.Link>
-                <Nav.Link href="#pricing">technology</Nav.Link>
+                <Link className="nav-link" to="/">Home</Link>
+
+                <Link className="nav-link" to="/business">Business</Link>
+
+                <Link className="nav-link" to="/entertainment">Entertainment</Link>
+
+                <Link className="nav-link" to="/">General</Link>
+
+                <Link className="nav-link" to="/health">Health</Link>
+
+                <Link className="nav-link" to="/science">Science</Link>
+
+                <Link className="nav-link" to="/sports">Sports</Link>
+
+                <Link className="nav-link" to="/technology">Technology</Link>
               </Nav>
             </Container>
           </Navbar>
