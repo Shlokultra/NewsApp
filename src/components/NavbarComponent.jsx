@@ -24,8 +24,14 @@ export class Navbarcomponent extends Component {
               <Navbar.Brand href="#home">InfoSentinel News</Navbar.Brand>
               <Nav className="me-auto">
                 <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="#features">About</Nav.Link>
+                <Nav.Link href="#pricing">business</Nav.Link>
+                <Nav.Link href="#pricing">entertainment</Nav.Link>
+                <Nav.Link href="#pricing">general</Nav.Link>
+                <Nav.Link href="#pricing">health</Nav.Link>
+                <Nav.Link href="#pricing">science</Nav.Link>
+                <Nav.Link href="#pricing">sports</Nav.Link>
+                <Nav.Link href="#pricing">technology</Nav.Link>
               </Nav>
             </Container>
           </Navbar>

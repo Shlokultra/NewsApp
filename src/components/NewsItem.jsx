@@ -10,7 +10,7 @@ export class NewsItem extends Component {
     return (
       <div className='my-3'>
         <>
-          <Card style={{ width: '18rem' }}>
+          <Card >
             <Card.Img variant="top" src={!imageurl ? "https://cdn.arstechnica.net/wp-content/uploads/2026/05/starshipflight12_inflight-1152x648.jpg" : imageurl} />
             <Card.Body>
               <Card.Title> {title} </Card.Title>
