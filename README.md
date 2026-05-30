@@ -139,7 +139,7 @@ This project helped strengthen practical knowledge of:
 
 **Shlok Yadav**
 
-Computer Engineering Student with interests in:
+Computer Science and Engineering Student with interests in:
 
 * Frontend Development
 * Cybersecurity
