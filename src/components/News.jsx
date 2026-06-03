@@ -76,7 +76,7 @@ setPage(nextPage);
     return (
       <div className='container my-3'>
         <>
-          <h1 className="text-center" style={{ margin: '50px 0px' }}>InfoSentinel News - Top {capitalizeFirstLetter(props.category)} Headlines </h1>
+          <h1 className="text-center" style={{ margin: '50px 0px',marginTop: '110px' }}>InfoSentinel News - Top {capitalizeFirstLetter(props.category)} Headlines </h1>
           {loading && <Spinner />}
           <InfiniteScroll
             dataLength={articles.length}

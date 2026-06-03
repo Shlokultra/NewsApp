@@ -19,7 +19,7 @@ const Navbarcomponent = () => {
         </Container>
       </Navbar> */}
         {/* <br /> */}
-        <Navbar bg="primary" data-bs-theme="dark">
+        <Navbar bg="primary fixed-top"  data-bs-theme="dark">
           <Container>
             <Navbar.Brand as={Link} to="/">InfoSentinel News</Navbar.Brand>
             <Nav className="me-auto">
