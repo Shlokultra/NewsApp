@@ -1,10 +1,8 @@
 import './App.css';
 import NavbarComponent from './components/NavbarComponent';
 import News from './components/News';
-// import News setProgress = {setProgress} apiKey = {apiKey}  from './components/News setProgress = {setProgress} apiKey = {apiKey} ';
 import React, { useState } from 'react'
 import LoadingBar from "react-top-loading-bar";
-// import News setProgress = {setProgress} apiKey = {apiKey} Item from './components/News setProgress = {setProgress} apiKey = {apiKey} Item';
 import {
   BrowserRouter as Router,
   Route,
